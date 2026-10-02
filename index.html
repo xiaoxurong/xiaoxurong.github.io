@@ -2,85 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="style.css">
-  <title>Xiaoxu Rong</title>
-  <meta name="description" content="Xiaoxu Rong - Ph.D. Student in Biomedical Data Science at UW–Madison. Research in machine learning, medical imaging, and NMF.">
-  <meta name="keywords" content="Xiaoxu Rong, UW-Madison, Biomedical Data Science, Machine Learning, Medical Imaging, NMF, CLIP, Ovarian Cancer, CTG">
-  <meta name="author" content="Xiaoxu Rong">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xiaoxu Rong | Machine Learning, UW–Madison</title>
+  <meta name="description" content="Xiaoxu Rong is a Ph.D. student at UW–Madison working on parameter-efficient fine-tuning of language models and deep learning for biomedical data." />
+  <meta name="author" content="Xiaoxu Rong" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-    <ul class="navbar">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#personal">Personal</a></li>
-    </ul>
-  </nav>
-  
-  <header>
-    <h1>Xiaoxu Rong</h1>
-    <p>Ph.D. Student in Biomedical Data Science at UW–Madison</p>
+  <header class="intro">
+    <img src="IMG_1953.jpeg" alt="Xiaoxu Rong" class="portrait" />
+    <div>
+      <h1>Xiaoxu Rong</h1>
+      <p class="role">Ph.D. student in Biomedical Data Science and M.S. student in Computer Science, University of Wisconsin–Madison</p>
+      <ul class="links">
+        <li><a href="mailto:xrong8@wisc.edu">Email</a></li>
+        <li><a href="https://github.com/xiaoxurong">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/xiaoxu-rong">LinkedIn</a></li>
+        <!-- Add your resume PDF to this repo as cv.pdf, then uncomment:
+        <li><a href="cv.pdf">Resume</a></li> -->
+      </ul>
+    </div>
   </header>
 
   <main>
     <section id="about">
-      <h2>About Me</h2>
-      <img src="IMG_1953.jpeg" alt="Profile picture of Xiaoxu Rong" class="profile-img" />
-      <p>
-        I’m a Ph.D. student at the University of Wisconsin–Madison, working at the intersection of machine learning and biomedical data. I transitioned into Biomedical Data Science from Educational Psychology, drawn by the potential of algorithms to make sense of complex datasets like medical images and CTG signals.
+      <p class="lead">
+        I build and evaluate deep learning models, with a focus on fine-tuning large models efficiently and on
+        clinical data that is scarce, noisy, or multimodal.
       </p>
       <p>
-        My research focuses on deep learning models applied to clinical problems, especially where data are high-dimensional, multimodal, or scarce. I'm passionate about building tools that improve diagnostics and understanding in medical settings.
-        On theoretical side, I'm interested in clustering and representation learning, particularly in how to make models more interpretable and robust.
+        My current work is on parameter-efficient fine-tuning of language models. Before that I worked on
+        time-series models for fetal monitoring, multimodal foundation models for medical imaging, and matrix
+        factorization for clustering. I am advised by Daniel Pimentel-Alarcón and Irene Ong, and I collaborate
+        with the Department of Pediatrics at UW Hospital.
       </p>
+      <p class="notice">I am looking for a machine learning engineer or data scientist internship.</p>
     </section>
 
     <section id="projects">
-      <h2>Ongoing Projects</h2>
+      <h2>Projects</h2>
 
-      <h3>1. Multimodal Deep Learning for Ovarian Cancer</h3>
-      <p>
-        The ultimate goal of this project is to adapt multimodal biomedical foundation models to help the report generation, diagnosis, phrase grounding of ovarian cancer. This project bridges text and image modalities in a challenging domain where biopsy isn’t practical. <br />
-        While our private dataset is under annotated, we leverage large public datasets to pretrain models and transfer the knowledge to our target domain. We benchmarked several multimodal models that are specialized for medical images and texts, including PubMedCLIP, ConVIRT, MedCLIP, BioViL, and BiomedCLIP.
-        Find more details in the github repo: <a href="https://github.com/123xrong/Benchmarking-Multimodal-CXR.git">Benchmarking Multimodal CXR</a>
-      </p>
+      <article>
+        <h3>RIFT: fine-tuning language models through sparse representation edits</h3>
+        <p class="meta">Paper under review</p>
+        <p>
+          RIFT adapts a language model by making sparse edits to its hidden-state representations instead of
+          updating its weights, training only 1,024 scalars per layer. I implemented it alongside LoRA and
+          LoReFT baselines in PyTorch on the Qwen2.5 model family and evaluated on commonsense reasoning,
+          GLUE, and GSM8K, running the experiments on an HTCondor GPU cluster.
+        </p>
+        <p class="tags">PyTorch · LLM fine-tuning · PEFT · HTCondor</p>
+      </article>
 
-      <h3>2. Generalized Nonnegative Matrix Factorization (NMF)</h3>
-      <p>
-        NMF is a powerful technique for extracting interpretable features from high-dimensional data. Existing NMF frameworks focus on learning a set of global basis of the data, but has overlooked data lying in a union of subspaces. We're developing a generalized framework that combines NMF with subspace clustering, improving its applicability to data lying in a union of subspaces.
-        Check out the github repo: <a href="https://github.com/123xrong/Generalized-NMF.git">Generalized NMF</a>
-      </p>
+      <article>
+        <h3>Predicting neonatal encephalopathy from cardiotocography</h3>
+        <p class="meta">Presented at the Pediatric Academic Societies Meeting, 2025</p>
+        <p>
+          A CNN–LSTM model for cardiotocography (fetal heart rate and uterine contraction) signals,
+          pretrained on a public dataset and fine-tuned with LoRA on a small clinical dataset. Transfer
+          raised AUC from 0.50 to 0.64 on the clinical test set.
+        </p>
+        <p class="tags">PyTorch · time series · transfer learning · LoRA</p>
+        <p><a href="https://github.com/xiaoxurong/NEDx">Code</a></p>
+      </article>
 
-      <h3>3. Time-Series Deep Models for CTG Analysis</h3>
-      <p>
-        We are designing a deep learning model for early diagnosis of neonatal encephalopathy from CTG signals. CTG measures fetal heart rate and uterine contractions, providing critical information during labor. The project tackles high-dimensional data, variable lengths, and low sample sizes with augmentation and novel architectures.
-        Our preliminary results were presented at the 2025 Pediatric Academic Societies Meeting (PAS 2025).
-        Check out the github repo: <a href="https://github.com/123xrong/NEDx.git">Neonatal Encephalopathy Detection</a>
-      </p>
+      <article>
+        <h3>Benchmarking multimodal foundation models for medical imaging</h3>
+        <p>
+          A benchmark of five biomedical image–text models (PubMedCLIP, ConVIRT, MedCLIP, BioViL, BiomedCLIP)
+          on chest X-ray classification, including zero-shot and few-shot settings and the effect of batch
+          size and learning-rate schedule. The longer-term goal is adapting these models to ovarian cancer
+          imaging, where labeled data is scarce.
+        </p>
+        <p class="tags">PyTorch · vision–language models · few-shot learning</p>
+        <p><a href="https://github.com/xiaoxurong/Benchmarking-Multimodal-CXR">Code</a></p>
+      </article>
+
+      <article>
+        <h3>Generalized nonnegative matrix factorization</h3>
+        <p>
+          Standard NMF learns one global basis and performs poorly when data lies in a union of subspaces.
+          This framework combines NMF with subspace clustering to learn localized, interpretable
+          representations, evaluated on synthetic data and on image, text, and gene-expression datasets.
+        </p>
+        <p class="tags">Python · clustering · matrix factorization</p>
+        <p><a href="https://github.com/xiaoxurong/Generalized-NMF">Code</a></p>
+      </article>
+    </section>
+
+    <section id="talks">
+      <h2>Papers and talks</h2>
+      <ul class="pubs">
+        <li><strong>Rong X</strong>, Onyelobi CN, McAdams RM, Pimentel-Alarcón D. Machine learning analysis of cardiotocographs (CTGs) for predicting neonatal encephalopathy (NE) among term infants. Pediatric Academic Societies Annual Meeting, Honolulu, 2025. Poster.</li>
+        <li><strong>Rong X</strong>. Dreaming or awake? Lightning talk, WID Symposium, UW–Madison, 2023. <a href="lightning-talk.pdf">Slides</a></li>
+        <li>Wylie A, Wang G, <strong>Rong X</strong>, Propper C, Short S. Testing multiple risk factors associated with maternal prenatal inflammation and infant amygdala volumes. Flux Society Annual Meeting, 2020. Poster.</li>
+      </ul>
     </section>
 
     <section id="personal">
-      <h2>Personal Life</h2>
-      <p>
-        Outside of research, I enjoy baking bread — especially sourdough — and exploring local cafés. I also love rock climbing (mostly indoor) and snowboarding.
-      </p>
-      <p>
-        I share my home with two lovely cats (or maybe the cats share home with me?):
-        <ul>
-          <li><strong>Boba</strong>: a small black American long-hair, curious and playful</li>
-          <li><strong>Nemo</strong>: a large tuxedo grey-and-white American short-hair, gentle and sleepy</li>
-        </ul>
-      </p>
-      <p>
-        They’ve accompanied me across the country, and always bring joy and love to my life.
-      </p>
-      <!-- Optional: Add cat images if you want -->
-      <img src="nemoboba.jpeg" class="profile-img">
+      <h2>Outside of research</h2>
+      <div class="personal">
+        <p>
+          I bake sourdough, climb (mostly indoors), and snowboard. I live with two cats, Boba and Nemo, who
+          have moved across the country with me.
+        </p>
+        <img src="nemoboba.jpeg" alt="Boba and Nemo, two cats" />
+      </div>
     </section>
-    
   </main>
-
 </body>
 </html>
