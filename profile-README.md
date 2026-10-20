@@ -7,7 +7,7 @@ Ph.D. student in Biomedical Data Science and M.S. student in Computer Science at
 ### Projects
 
 - **RIFT**: fine-tuning language models through sparse edits to hidden-state representations (paper under review).
-- **[NEDx](https://github.com/xiaoxurong/NE-code)**: CNN–LSTM for predicting neonatal encephalopathy from cardiotocography, with pretraining on public data and LoRA fine-tuning on a small clinical dataset.
+- **[NE-code](https://github.com/xiaoxurong/NE-code)**: predicting fetal acidemia from labor heart-rate recordings (CTU-UHB), comparing a CNN–LSTM with frozen pretrained time-series encoders against shortcut baselines.
 - **[Benchmarking-Multimodal-CXR](https://github.com/xiaoxurong/Benchmarking-Multimodal-CXR)**: zero-shot and few-shot benchmark of five biomedical image–text foundation models on chest X-rays.
 - **[Generalized-NMF](https://github.com/xiaoxurong/Generalized-NMF)**: nonnegative matrix factorization for data in a union of subspaces.
 

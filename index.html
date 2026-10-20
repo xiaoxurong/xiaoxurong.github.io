@@ -58,14 +58,17 @@
       </article>
 
       <article>
-        <h3>Predicting neonatal encephalopathy from cardiotocography</h3>
-        <p class="meta">Presented at the Pediatric Academic Societies Meeting, 2025</p>
+        <h3>Predicting fetal acidemia from intrapartum cardiotocography</h3>
+        <p class="meta">Public-data release of my neonatal encephalopathy project (PAS 2025 poster)</p>
         <p>
-          A CNN–LSTM model for cardiotocography (fetal heart rate and uterine contraction) signals,
-          pretrained on a public dataset and fine-tuned with LoRA on a small clinical dataset. Transfer
-          raised AUC from 0.50 to 0.64 on the clinical test set.
+          A benchmark on the public CTU-UHB database (552 labor recordings) that asks whether a model reads
+          the fetal heart-rate trace or only how well it was recorded. Baselines built from signal loss and
+          recording length alone reach AUROC 0.72; a CNN–LSTM trained from scratch fell below them and mostly
+          learned delivery mode. Frozen Mantis embeddings with a linear probe reach 0.69–0.71 and capture
+          signal the shortcuts miss: combined with them they reach 0.75, a small gain that kept its
+          direction on a second set of cross-validation folds.
         </p>
-        <p class="tags">PyTorch · time series · transfer learning · LoRA</p>
+        <p class="tags">PyTorch · time series · foundation models · evaluation · HTCondor</p>
         <p><a href="https://github.com/xiaoxurong/NE-code">Code</a></p>
       </article>
 
