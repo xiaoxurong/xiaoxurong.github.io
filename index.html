@@ -1,120 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xiaoxu Rong | Machine Learning, UW–Madison</title>
-  <meta name="description" content="Xiaoxu Rong is a Ph.D. student at UW–Madison working on parameter-efficient fine-tuning of language models and deep learning for biomedical data." />
-  <meta name="author" content="Xiaoxu Rong" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#f7f6f2" />
+<title>Xiaoxu Rong | Machine Learning Research</title>
+<meta name="description" content="Xiaoxu Rong researches machine learning under data and computation constraints: efficient adaptation of foundation models and learning from limited, imperfect biomedical data. UW–Madison." />
+<meta name="author" content="Xiaoxu Rong" /><meta property="og:title" content="Xiaoxu Rong | Machine Learning Research" /><meta property="og:description" content="Learning from imperfect data. Adapting powerful models efficiently. Machine learning research at UW–Madison." /><meta property="og:type" content="website" /><meta property="og:url" content="https://xiaoxurong.github.io/" />
+<link rel="canonical" href="https://xiaoxurong.github.io/" /><link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" /><script src="script.js" defer></script>
 </head>
 <body>
-  <header class="intro">
-    <img src="IMG_1953.jpeg" alt="Xiaoxu Rong" class="portrait" />
-    <div>
-      <h1>Xiaoxu Rong</h1>
-      <p class="role">Ph.D. student in Biomedical Data Science and M.S. student in Computer Science, University of Wisconsin–Madison</p>
-      <ul class="links">
-        <li><a href="mailto:xrong8@wisc.edu">Email</a></li>
-        <li><a href="https://github.com/xiaoxurong">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/xiaoxu-rong">LinkedIn</a></li>
-        <!-- Add your resume PDF to this repo as cv.pdf, then uncomment:
-        <li><a href="cv.pdf">Resume</a></li> -->
-      </ul>
-    </div>
-  </header>
-
-  <main>
-    <section id="about">
-      <p class="lead">
-        I build and evaluate deep learning models, with a focus on fine-tuning large models efficiently and on
-        clinical data that is scarce, noisy, or multimodal.
-      </p>
-      <p>
-        My current work is on parameter-efficient fine-tuning of language models. Before that I worked on
-        time-series models for fetal monitoring, multimodal foundation models for medical imaging, and matrix
-        factorization for clustering. I am advised by Daniel Pimentel-Alarcón, and I collaborate with the
-        Department of Pediatrics at UW Hospital.
-      </p>
-      <p class="notice">I am looking for a machine learning engineer or data scientist internship.</p>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <article>
-        <h3>RIFT: fine-tuning language models through sparse representation edits</h3>
-        <p class="meta">Paper under review</p>
-        <p>
-          RIFT adapts a language model by making sparse edits to its hidden-state representations instead of
-          updating its weights, training only 1,024 scalars per layer. I implemented it alongside LoRA and
-          LoReFT baselines in PyTorch on the Qwen2.5 model family and evaluated on commonsense reasoning,
-          GLUE, and GSM8K, running the experiments on an HTCondor GPU cluster.
-        </p>
-        <p class="tags">PyTorch · LLM fine-tuning · PEFT · HTCondor</p>
-      </article>
-
-      <article>
-        <h3>Predicting fetal acidemia from intrapartum cardiotocography</h3>
-        <p class="meta">Public-data release of my neonatal encephalopathy project (PAS 2025 poster)</p>
-        <p>
-          A benchmark on the public CTU-UHB database (552 labor recordings) that asks whether a model reads
-          the fetal heart-rate trace or only how well it was recorded. Baselines built from signal loss and
-          recording length alone reach AUROC 0.72; a CNN–LSTM trained from scratch fell below them and mostly
-          learned delivery mode. Frozen Mantis embeddings with a linear probe reach 0.69–0.71 and capture
-          signal the shortcuts miss: combined with them they reach 0.75, a small gain that kept its
-          direction on a second set of cross-validation folds.
-        </p>
-        <p class="tags">PyTorch · time series · foundation models · evaluation · HTCondor</p>
-        <p><a href="https://github.com/xiaoxurong/NE-code">Code</a></p>
-      </article>
-
-      <article>
-        <h3>Benchmarking multimodal foundation models for medical imaging</h3>
-        <p>
-          A benchmark of five biomedical image–text models (PubMedCLIP, ConVIRT, MedCLIP, BioViL, BiomedCLIP)
-          on chest X-ray classification, including zero-shot and few-shot settings and the effect of batch
-          size and learning-rate schedule. The longer-term goal is adapting these models to ovarian cancer
-          imaging, where labeled data is scarce.
-        </p>
-        <p class="tags">PyTorch · vision–language models · few-shot learning</p>
-        <p><a href="https://github.com/xiaoxurong/Benchmarking-Multimodal-CXR">Code</a></p>
-      </article>
-
-      <article>
-        <h3>Generalized nonnegative matrix factorization</h3>
-        <p>
-          Standard NMF learns one global basis and performs poorly when data lies in a union of subspaces.
-          This framework combines NMF with subspace clustering to learn localized, interpretable
-          representations, evaluated on synthetic data and on image, text, and gene-expression datasets.
-        </p>
-        <p class="tags">Python · clustering · matrix factorization</p>
-        <p><a href="https://github.com/xiaoxurong/Generalized-NMF">Code</a></p>
-      </article>
-    </section>
-
-    <section id="talks">
-      <h2>Papers and talks</h2>
-      <ul class="pubs">
-        <li><strong>Rong X</strong>, Onyelobi CN, McAdams RM, Pimentel-Alarcón D. Machine learning analysis of cardiotocographs (CTGs) for predicting neonatal encephalopathy (NE) among term infants. Pediatric Academic Societies Annual Meeting, Honolulu, 2025. Poster.</li>
-        <li><strong>Rong X</strong>. Dreaming or awake? Lightning talk, WID Symposium, UW–Madison, 2023. <a href="lightning-talk.pdf">Slides</a></li>
-        <li>Wylie A, Wang G, <strong>Rong X</strong>, Propper C, Short S. Testing multiple risk factors associated with maternal prenatal inflammation and infant amygdala volumes. Flux Society Annual Meeting, 2020. Poster.</li>
-      </ul>
-    </section>
-
-    <section id="personal">
-      <h2>Outside of research</h2>
-      <div class="personal">
-        <p>
-          I bake sourdough, climb (mostly indoors), and snowboard. I live with two cats, Boba and Nemo, who
-          have moved across the country with me.
-        </p>
-        <img src="nemoboba.jpeg" alt="Boba and Nemo, two cats" />
-      </div>
-    </section>
-  </main>
-</body>
-</html>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="shell navigation">
+<a class="wordmark" href="#home" aria-label="Xiaoxu Rong, home"><span class="monogram" aria-hidden="true">xr<span>.</span></span><span>Xiaoxu Rong</span></a>
+<nav aria-label="Main navigation"><a href="#research">Research</a><a href="#projects">Projects</a><a href="#publications">Publications &amp; talks</a><a href="#about">About</a></nav>
+</div></header>
+<main id="main" class="shell">
+<section class="hero" id="home" aria-labelledby="hero-title">
+<div class="hero-copy">
+<p class="eyebrow"><span class="small-line" aria-hidden="true"></span> Machine learning · UW–Madison</p>
+<h1 id="hero-title">Xiaoxu Rong<span class="name-period">.</span></h1>
+<p class="hero-statement">Learning from imperfect data.<br />Adapting powerful models efficiently.</p>
+<p class="hero-description">I develop and evaluate machine learning methods that make the most of limited data and computation, from biomedical time series to large language models.</p>
+<p class="affiliation">Ph.D. student in Biomedical Data Science<br />Concurrent M.S. student in Computer Science<br /><span>University of Wisconsin–Madison</span></p>
+<div class="hero-actions"><a class="button button-solid" href="mailto:xrong8@wisc.edu">Get in touch <span aria-hidden="true">↗</span></a><a class="text-link" href="https://linkedin.com/in/xiaoxu-rong-ba5280202/">LinkedIn <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/xiaoxurong">GitHub <span aria-hidden="true">↗</span></a></div>
+</div>
+<aside class="hero-aside" aria-label="Portrait and availability"><div class="portrait-frame"><img class="portrait" src="IMG_1953.jpeg" width="1211" height="1222" alt="Xiaoxu Rong outdoors" fetchpriority="high" /></div><div class="availability"><span class="availability-dot" aria-hidden="true"></span><div><strong>Open to Summer 2027 internships</strong><span>Machine Learning Engineer · Data Scientist</span></div></div></aside>
+</section>
+<section class="research-section" id="research" aria-labelledby="research-title">
+<div class="section-heading"><p class="eyebrow">Research directions</p><h2 id="research-title">Machine learning under<br />real-world constraints.</h2></div>
+<p class="section-intro">My work connects two questions: how can models learn useful representations when data is limited or imperfect, and how can we adapt those representations efficiently?</p>
+<div class="directions">
+<article class="direction direction-data"><span class="direction-number" aria-hidden="true">01</span><p class="direction-label">The data constraint</p><h3>Learning from limited<br />and imperfect data</h3><p>I study models for noisy time series, scarce labels, and heterogeneous data, with biomedical problems as a demanding testbed. My work spans transfer learning, multimodal models, and structured representations.</p><a class="text-link" href="#projects" data-project-filter="data">Explore this direction <span aria-hidden="true">↗</span></a></article>
+<article class="direction direction-efficient"><span class="direction-number" aria-hidden="true">02</span><p class="direction-label">The adaptation constraint</p><h3>Efficient adaptation<br />of foundation models</h3><p>I investigate how to adapt pretrained models with small trainable parameter budgets. My current work, RIFT, studies sparse edits to hidden representations and the choice of which entries to train.</p><a class="text-link" href="#projects" data-project-filter="efficient">Explore this direction <span aria-hidden="true">↗</span></a></article>
+</div>
+<p class="connection"><span aria-hidden="true">↳</span> Biomedical applications motivate the data challenges; representation learning and model adaptation connect the methods.</p>
+</section>
+<section class="projects-section" id="projects" aria-labelledby="projects-title">
+<div class="project-section-top"><div><p class="eyebrow">Selected work</p><h2 id="projects-title">Questions into projects.</h2></div><div class="project-filters" role="group" aria-label="Filter research projects"><button type="button" data-filter="all" aria-pressed="true">All work</button><button type="button" data-filter="data" aria-pressed="false">Data constraints</button><button type="button" data-filter="efficient" aria-pressed="false">Efficient adaptation</button></div></div>
+<p class="filter-status" aria-live="polite" aria-atomic="true">Showing all 4 projects</p>
+<div class="project-list">
+<article class="project project-featured" id="rift" data-tracks="efficient" aria-labelledby="rift-title">
+<div class="project-copy"><div class="project-overline"><span class="track-tag tag-efficient">Efficient adaptation</span><span class="status-tag">Under review · ICLR 2027</span></div><h3 id="rift-title">RIFT</h3><p class="project-subtitle">Sparse Representation Fine-Tuning with Random Support</p><p>How little needs to change to adapt a language model? RIFT trains sparse edits to hidden representations while keeping the pretrained model weights frozen.</p><p>I study random versus gradient-based support selection and the tradeoff between task performance and trainable parameter budget, with evaluations on the Qwen2.5 family and RoBERTa.</p><ul class="method-tags" aria-label="Methods"><li>Representation fine-tuning</li><li>Language models</li><li>Random support</li></ul><p class="project-footnote">Benchmarks include commonsense reasoning, GLUE, and GSM8K.</p></div>
+<figure class="rift-figure"><div class="figure-topline"><span>Method overview</span><span>Frozen model · sparse edit</span></div><a href="assets/rift-overview.svg" target="_blank" rel="noopener" aria-label="Open the RIFT method schematic at full size"><img src="assets/rift-overview.svg" width="720" height="390" alt="A frozen transformer produces a hidden state. A sparse trainable mixing operator adds an edit to the original representation before the next frozen block." /></a><figcaption>Adapt the representation with a small trainable intervention. Conceptual schematic; the support pattern is illustrative. <a href="assets/rift-overview.svg" target="_blank" rel="noopener">View full schematic ↗</a></figcaption></figure>
+</article>
+<article class="project project-ctg" id="ctg" data-tracks="data efficient" aria-labelledby="ctg-title">
+<div class="project-copy"><div class="project-overline"><span class="track-tag tag-data">Data constraints</span><span class="status-tag">Public-data benchmark</span></div><h3 id="ctg-title">Separating signal<br />from shortcuts</h3><p class="project-subtitle">Foundation models for clinical time series</p><p>Using public fetal heart-rate recordings, I compare models trained from scratch with frozen pretrained encoders. The central question is whether predictions reflect the heart-rate trace or shortcuts such as signal loss and recording length.</p><p>The benchmark uses subject-level cross-validation, shortcut baselines, and confirmation on new folds. It connects my neonatal encephalopathy research to a reproducible public-data study of fetal acidemia.</p><ul class="method-tags" aria-label="Methods"><li>Time-series transfer</li><li>Shortcut analysis</li><li>Clinical ML</li></ul><a class="text-link" href="https://github.com/xiaoxurong/NE-code">Code &amp; full evaluation <span aria-hidden="true">↗</span></a></div>
+<figure class="ctg-figure"><div class="figure-topline"><span>A closer look at model behavior</span><span>Preliminary results</span></div><a href="assets/ctg-missingness-correlation.png" target="_blank" rel="noopener" aria-label="Open the CTG signal-loss correlation figure at full size"><img src="assets/ctg-missingness-correlation.png" width="1400" height="520" loading="lazy" alt="On public CTU-UHB data at pH below 7.05, correlation of predicted risk with signal loss is 0.80 for the shortcut baseline, 0.14 for CNN–LSTM, 0.19 for MOMENT-base, and 0.12 for Mantis." /></a><figcaption>Different predictors show different sensitivity to missing data. Correlation with signal loss is a behavioral diagnostic, not an accuracy metric. <a href="assets/ctg-missingness-correlation.png" target="_blank" rel="noopener">View full figure ↗</a></figcaption></figure>
+<details class="results-details"><summary>View benchmark results and evaluation context <span aria-hidden="true">+</span></summary><div class="results-content"><p>The public CTU–UHB benchmark contains 541 usable recordings. The figure reports the initial repeated cross-validation results; the rank-averaged combination is exploratory. In a subsequent confirmation on new folds at pH &lt; 7.05, the combination reached AUROC 0.749 versus 0.722 for the shortcut baseline. The paired improvement was +0.027 (95% interval −0.016 to +0.071), so the gain remains uncertain. External validation is pending.</p><a href="assets/ctg-auroc-overview.png" target="_blank" rel="noopener" aria-label="Open all CTG AUROC results at full size"><img src="assets/ctg-auroc-overview.png" width="2048" height="856" loading="lazy" alt="AUROC comparisons with 95 percent bootstrap intervals for shortcut baselines, CNN–LSTM, pretrained encoders, and exploratory combinations at two acidemia thresholds." /></a><p class="results-source">Figures and values: <a href="https://github.com/xiaoxurong/NE-code#results">NE-code, public results and confirmation tables</a>. This public acidemia benchmark uses a different outcome and cohort from the PAS 2025 neonatal encephalopathy poster.</p></div></details>
+</article>
+<div class="compact-projects">
+<article class="project project-compact" id="multimodal" data-tracks="data efficient" aria-labelledby="multimodal-title"><div class="project-overline"><span class="track-tag tag-data">Data constraints</span><span class="project-index" aria-hidden="true">03</span></div><h3 id="multimodal-title">Adapting vision–language<br />models with few labels</h3><p>Benchmarking five biomedical image–text models on chest X-ray classification: PubMedCLIP, ConVIRT, MedCLIP, BioViL, and BiomedCLIP. I study zero-shot and few-shot performance, alongside the effects of fine-tuning settings.</p><p class="project-question">Focus: how much labeled data does adaptation require?</p><ul class="method-tags" aria-label="Methods"><li>Multimodal learning</li><li>Few-shot adaptation</li></ul><a class="text-link" href="https://github.com/xiaoxurong/Benchmarking-Multimodal-CXR">Explore the code <span aria-hidden="true">↗</span></a></article>
+<article class="project project-compact" id="nmf" data-tracks="data" aria-labelledby="nmf-title"><div class="project-overline"><span class="track-tag tag-data">Data constraints</span><span class="project-index" aria-hidden="true">04</span></div><h3 id="nmf-title">Structured representations<br />for heterogeneous data</h3><p>Generalized nonnegative matrix factorization for data that lie in a union of subspaces. This work combines matrix factorization and subspace clustering to learn localized, interpretable representations.</p><p class="project-question">Focus: representing local structure beyond a single global basis.</p><ul class="method-tags" aria-label="Methods"><li>Matrix factorization</li><li>Subspace clustering</li></ul><a class="text-link" href="https://github.com/xiaoxurong/Generalized-NMF">Explore the code <span aria-hidden="true">↗</span></a></article>
+</div></div>
+</section>
+<section class="publications-section" id="publications" aria-labelledby="publications-title">
+<div class="section-heading"><p class="eyebrow">Research outputs</p><h2 id="publications-title">Manuscripts &amp; presentations.</h2></div>
+<div class="publication-list">
+<article class="publication"><div class="publication-type">Manuscript<br /><span>Under review</span></div><div><h3>RIFT: Sparse Representation Fine-Tuning with Random Support</h3><p>Submitted to ICLR 2027.</p><a class="text-link" href="#rift">Project overview <span aria-hidden="true">↗</span></a></div></article>
+<article class="publication"><div class="publication-type">Poster<br /><span>PAS · 2025</span></div><div><h3>Machine learning analysis of cardiotocographs (CTGs) for predicting neonatal encephalopathy (NE) among term infants</h3><p><strong>Rong X</strong>, Onyelobi CN, McAdams RM, Pimentel-Alarcón D.</p><p>Pediatric Academic Societies Annual Meeting · Honolulu, HI</p></div></article>
+<article class="publication"><div class="publication-type">Lightning talk<br /><span>WID · 2023</span></div><div><h3>Dreaming or awake?</h3><p><strong>Rong X.</strong> WID Symposium · University of Wisconsin–Madison</p><a class="text-link" href="lightning-talk.pdf">View slides <span aria-hidden="true">↗</span></a></div></article>
+<details class="earlier-talks"><summary>Earlier presentation <span aria-hidden="true">+</span></summary><p>Wylie A, Wang G, <strong>Rong X</strong>, Propper C, Short S. Testing multiple risk factors associated with maternal prenatal inflammation and infant amygdala volumes. <em>Flux Society Annual Meeting</em>, 2020. Poster.</p></details>
+</div></section>
+<section class="about-section" id="about" aria-labelledby="about-title"><div class="about-copy"><p class="eyebrow">A little more</p><h2 id="about-title">Behind the research.</h2><p>I am advised by Daniel Pimentel-Alarcón at UW–Madison and collaborate with the Department of Pediatrics at UW Hospital.</p><p>Outside research, I bake sourdough, climb (mostly indoors), and snowboard. I live with two cats, Boba and Nemo, who have moved across the country with me.</p><p class="cat-note">My most frequent collaborators at home. <span aria-hidden="true">→</span></p></div><figure class="cats"><img src="nemoboba.jpeg" width="1024" height="768" loading="lazy" alt="Boba and Nemo, Xiaoxu's two cats" /><figcaption>Boba &amp; Nemo</figcaption></figure></section>
+<section class="contact-section" id="contact" aria-labelledby="contact-title"><div><p class="eyebrow">Let's connect</p><h2 id="contact-title">Interested in working together?</h2><p>I’m looking for Summer 2027 internships in machine learning engineering and data science.</p></div><a class="button button-solid" href="mailto:xrong8@wisc.edu">xrong8@wisc.edu <span aria-hidden="true">↗</span></a></section>
+</main>
+<footer class="shell site-footer"><p>© <span id="year">2026</span> Xiaoxu Rong</p><p>Machine learning · Madison, Wisconsin</p><a href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
+</body></html>
